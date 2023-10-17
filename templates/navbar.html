@@ -1,0 +1,114 @@
+{% with request.resolver_match.url_name as url_name %}
+{% if request.user.is_authenticated %}
+
+<header>
+    <a href="" id="logo">shopeeze</a>
+
+    <div class="search-container">
+        <input type="text" placeholder="search here.." class="search-field">
+        <button class="search-btn"><i class='bx bx-search-alt'></i></button>
+    </div>
+
+    <nav>
+        <a href="">Home</a>
+        <div class="cat-drp-dwn">
+            <div class="categories">
+                Categories
+                <i class='bx bx-chevron-down'></i>
+            </div>
+
+            <div class="dropdown">
+                <a href="#men">
+                    <i class='bx bx-male-sign'></i>
+                    <span>Men</span>
+                </a>
+                <hr>
+                <a href="#women">
+                    <i class='bx bx-female-sign'></i>
+                    <span >Women</span>
+                </a>
+            
+            </div>
+        </div>
+
+        <a href="">Support</a>
+        
+
+        <div>
+            <a href="/cart-prdt/"><i class='bx bx-cart'></i></a>
+        </div>
+
+        <div class="profile-menu">
+            <div class="profile" href="">
+                <i class='bx bx-user'></i>
+                {{request.user.first_name}}
+            </div>
+
+            <div class="dropdown">
+                <a href="{% url 'update-profile' %}">
+                    <i class='bx bx-user-plus'></i>
+                    Edit Profile
+                </a>
+                <a href="">
+                    <i class='bx bx-package'></i>
+                    My Orders
+                </a>
+                <a href="/change-password/">
+                    <i class='bx bxs-key'></i>
+                    Change Password
+                </a>
+                <a href="/logout/">
+                    <i class='bx bx-log-out'></i>
+                    Logout
+                </a>
+
+            </div>
+        </div>
+        
+    </nav>
+</header>
+
+{% else %}
+<header>
+    <a href="" id="logo">shopeeze</a>
+
+    <div class="search-container">
+        <input type="text" placeholder="search here.." class="search-field">
+        <button class="search-btn"><i class='bx bx-search-alt'></i></button>
+    </div>
+
+    <nav>
+        <a href="">Home</a>
+        <div class="cat-drp-dwn">
+            <div class="categories">
+                Categories
+                <i class='bx bx-chevron-down'></i>
+            </div>
+
+            <div class="dropdown">
+                <a href="#men">
+                    <i class='bx bx-male-sign'></i>
+                    <span>Men</span>
+                </a>
+                <hr>
+                <a href="#women">
+                    <i class='bx bx-female-sign'></i>
+                    <span >Women</span>
+                </a>
+            
+            </div>
+        </div>
+        <a href="">Support</a>
+
+        
+        <div>
+            <a href="/login/"><i class='bx bx-cart'></i></a>
+        </div>
+        
+        <a href="/login/"><Button class="login-btn">Log in</Button></a>
+    </nav>
+</header>
+
+{% endif %}
+
+{% endwith %}
